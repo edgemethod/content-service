@@ -2,7 +2,7 @@
 
 const AppRoot = require('app-root-path');
 const rethink = require('rethinkdbdash');
-const service = require( './lib/feathers-rethinkdb');
+const service = require( 'feathers-rethinkdb');
 
 const hooks = require('./hooks');
 const Proto = require('uberproto');
