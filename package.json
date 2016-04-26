@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "app-root-path": "^1.0.0",
+    "asyncawait": "^1.0.3",
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "cookie-parser": "^1.4.1",
+    "cors": "^2.7.1",
+    "feathers": "^2.0.0",
+    "feathers-authentication": "^0.7.4",
+    "feathers-configuration": "^0.2.2",
+    "feathers-errors": "^2.1.0",
+    "feathers-hooks": "^1.5.2",
+    "feathers-query-filters": "^1.5.1",
+    "feathers-rest": "^1.2.5",
+    "feathers-rethinkdb": "^0.2.0",
+    "feathers-socketio": "^1.3.4",
+    "fs-extra": "^0.28.0",
+    "inflect": "^0.3.0",
+    "lodash": "^4.11.1",
+    "moment": "^2.13.0",
+    "multer": "^1.1.0",
+    "nodegit": "^0.12.2",
+    "promisify-node": "^0.4.0",
+    "rethinkdbdash": "^2.3.2",
+    "uberproto": "^1.2.0",
+    "underscore.string": "^3.3.4",
+    "view-helpers": "^0.1.5",
+    "walk": "^2.3.9"
+  }
+}
