@@ -2,11 +2,11 @@
 
 const AppRoot = require('app-root-path');
 const rethink = require('rethinkdbdash');
-const service = require( '../../node_modules/feathers-rethinkdb');
+const service = require( 'feathers-rethinkdb');
 
 const hooks = require('./hooks');
 const Proto = require('uberproto');
-const filter = require('../../node_modules/feathers-query-filters');
+const filter = require('feathers-query-filters');
 
 
 // file uploads
