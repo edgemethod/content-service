@@ -1,6 +1,20 @@
 {
   "name": "content-service",
+  "description": "Content Service",
   "version": "0.0.1",
+  "homepage": "https://github.com/edgemethod/content-service",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edgemethod/content-service.git"
+  },
+  "author": {
+    "name": "Alvin Engler",
+    "email": "alvin@edgemethod.com",
+    "url": "https://edgemethod.com"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
   "dependencies": {
     "app-root-path": "^1.0.0",
     "asyncawait": "^1.0.3",
