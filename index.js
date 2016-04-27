@@ -115,3 +115,5 @@ module.exports = function(repoName){
   // Set up our after hooks
   contentService.after(hooks.after);
 };
+
+module.exports.helpers = require('./helpers');
