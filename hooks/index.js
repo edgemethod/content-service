@@ -3,7 +3,7 @@
 //const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const filter = require('../lib/feathers-query-filters');
+const filter = require('feathers-query-filters');
 
 // git stuff
 const gitMirror = require('./git-mirror');
