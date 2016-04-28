@@ -2,7 +2,7 @@
 const appRoot = require('app-root-path');
 const path = require('path');
 const git = require("../lib/git-io");
-const helpers = require("../helpers");
+const helpers = require("../lib/helpers");
 
 
 module.exports.write = function() {

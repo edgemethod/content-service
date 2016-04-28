@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const helpers = require('../helpers');
+const helpers = require('../lib/helpers');
 
 module.exports = function() {
   return function(hook) {
