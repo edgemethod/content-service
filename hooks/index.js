@@ -18,6 +18,7 @@ exports.before = {
   find:[],
   get: [],
   create: [
+    hooks.remove('_system'),
     gitMirror.write()
   ],
   update: [],

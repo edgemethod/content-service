@@ -1,6 +1,7 @@
 'use strict';
 
 const AppRoot = require('app-root-path');
+const rethink = require('rethinkdbdash');
 const service = require( 'feathers-rethinkdb');
 
 const hooks = require('./hooks');
@@ -21,9 +22,17 @@ const path = require('path');
 
 module.exports = function(repoName){
   const app = this;
-  const r = app.r;
+
   repoName = repoName || 'content';
 
+  const r = rethink({
+    db: `${app.dbName}`
+  });
+
+  
+
+  console.log(["Content Service: ",repoName]);
+  
   r.tableList().contains(repoName)
     .do(tableExists => r.branch( tableExists, {created: 0}, r.tableCreate(repoName))).run()
     .then((results) => {

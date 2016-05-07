@@ -33,7 +33,7 @@
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
     "multer": "^1.1.0",
-    "nodegit": "^0.12.2",
+    "nodegit": "^0.13.0",
     "promisify-node": "^0.4.0",
     "uberproto": "^1.2.0",
     "underscore.string": "^3.3.4",

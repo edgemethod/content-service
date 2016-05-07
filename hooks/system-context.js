@@ -12,13 +12,15 @@ module.exports = function() {
       var itemPath = helpers.idToPath(item.id);
       var breadcrumbs = itemPath.split('/');
       var itemParent = (breadcrumbs && breadcrumbs.length >= 1) ? breadcrumbs[breadcrumbs.length - 2] : undefined;
-      
+      var basename = path.basename(itemPath);
       hook.result.data[idx]._system = {
         "url" : itemPath.replace(/\.json$/,''),
+        "action" : (item.type == 'directory' ? 'browser' : 'open'),
         "path" : itemPath,
         "breadcrumbs" : breadcrumbs,
         "parent" : itemParent,
-        "basename" : path.basename(itemPath)
+        "basename" : basename,
+        "hidden" : (basename.match(/^_.*$/) ? true : false)
       };
       
     })
