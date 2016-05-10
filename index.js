@@ -56,35 +56,6 @@ module.exports = function(repoName){
     };
     
     
-
-    // push to upstream/remote via bitbucket auth,
-    // put this here so hopefully it pre-empts the core service PUT handler
-    app.put([`/${repoName}`], function(req, res, next) {
-      console.log(req.user);
-    
-      if (req.user && req.user.token) {
-    
-        var gitOptions = {
-          repoDir: `${AppRoot}/${options.name}`,
-          userToken: req.user.token
-        };
-        try {
-      
-          git.push(gitOptions, function(err, result) {
-            console.log(["push report", err, result]);
-            if (err) res.send({error: err})
-            else res.send(result);
-          });        
-      
-    
-        } catch(e) {
-          res.send({error: `there was a problem with your push request ${e}`})      
-        }
-      } else {
-        res.send({error: "no auth token"})
-      }
-    });
-    
     // Initialize our service with any options it requires
     app.use(`/${repoName}`, service(options));
     
@@ -138,6 +109,7 @@ module.exports = function(repoName){
 
   });
   
-
+  
+  
   
 };

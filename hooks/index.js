@@ -14,14 +14,18 @@ const systemContext = require('./system-context');
 //    (hook) => { delete(hook.data._system); return hook },    
 
 exports.before = {
-  all: [],
+  all: [
+      auth.verifyToken(),
+      auth.populateUser(),
+      auth.restrictToAuthenticated()
+  ],
   find:[],
   get: [],
   create: [
-    hooks.remove('_system'),
+    (hook) => { delete(hook.data._system); return hook },
     gitMirror.write()
   ],
-  update: [],
+  update: [gitMirror.pushOnRootUpdate()],
   patch: [],
   remove: [gitMirror.delete()]
 //  remove: []
@@ -33,7 +37,7 @@ exports.after = {
   get: [],
   create: [],
   update: [
-    hooks.remove('_system'),
+    (hook) => { delete(hook.data._system); return hook },
     gitMirror.write()
   ],
   patch: [],
