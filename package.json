@@ -35,6 +35,7 @@
     "multer": "^1.1.0",
     "nodegit": "^0.13.0",
     "promisify-node": "^0.4.0",
+    "request": "^2.72.0",
     "uberproto": "^1.2.0",
     "underscore.string": "^3.3.4",
     "view-helpers": "^0.1.5",
