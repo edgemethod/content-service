@@ -81,10 +81,13 @@ module.exports = function(repoName){
     //console.log(req.params, req.files)
   
     const pathName = `_assets/${req.params[0]}`;
-  
+
     // pre-set shared options
     var gitOptions = {
-      user: git.configUser(app),
+      user: {
+        name: "Local User", 
+        email: "do-not-email@edgemethod.com"
+      },
       repoName: options.name,
       repoDir: `${AppRoot}/${options.name}`,
       pathName: pathName,
