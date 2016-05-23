@@ -8,6 +8,8 @@ const filter = require('feathers-query-filters');
 // git stuff
 const gitMirror = require('./git-mirror');
 
+const helpers = require('../lib/helpers');
+
 // populate _system
 const systemContext = require('./system-context');
 
@@ -20,8 +22,11 @@ exports.before = {
       auth.restrictToAuthenticated()
   ],
   find:[],
-  get: [],
+  get: [
+  ],
   create: [
+    (hook) => {hook.data.createdAt = new Date(); return hook },
+    auth.associateCurrentUser({ idField: 'id', as: 'createdByUserId' }),
     (hook) => { delete(hook.data._system); return hook },
     gitMirror.write()
   ],
@@ -33,11 +38,24 @@ exports.before = {
 
 exports.after = {
   all: [],
-  find: [systemContext()],
+  find: [
+    systemContext(),
+    hooks.populate('user', {
+      service: 'users',
+      field: 'createdByUserId'  
+    }),
+    hooks.populate('source', {
+      service: 'content',
+      field: 'sourcePath'  
+    })
+  ],
   get: [],
   create: [],
   update: [
     (hook) => { delete(hook.data._system); return hook },
+    (hook) => { delete(hook.data.id); return hook },
+    (hook) => { delete(hook.data.user); return hook },
+    (hook) => { delete(hook.data.source); return hook },
     gitMirror.write()
   ],
   patch: [],

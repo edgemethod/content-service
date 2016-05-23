@@ -39,10 +39,13 @@ module.exports = function(repoName){
       if (results['tables_created'] && results['tables_created'] > 0) git.import(repoName, r);  
     })
     .then(() => {
-      
-      
-
-      
+      if (process.env.NODE_ENV != "production") {
+        console.log(["Dev mode - reloading from filesystem: ",repoName]);
+        r.table(repoName).delete({})
+          .then((result) => {
+            git.import(repoName, r);        
+          });
+      }      
     })
     .catch(err => console.log(err));
 
@@ -57,9 +60,9 @@ module.exports = function(repoName){
     
     
     // Initialize our service with any options it requires
-    app.use(`/${repoName}`, service(options));
+    app.use(`/${repoName}`,service(options));
     
-
+  
   
   // Get our initialize service to that we can bind hooks
 
