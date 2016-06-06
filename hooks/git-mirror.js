@@ -117,8 +117,16 @@ var setupOptions = (hook) => {
   
   var gitConfig = hook.app.get('git');  
   options.user = {}
+  if (hook.params.user && hook.params.user.auth0) { // for auth0 users
 
-  if (hook.params.user && hook.params.user.email) {
+    options.user = {
+      name: hook.params.user.auth0.nickname,
+      email: hook.params.user.auth0.email,
+    }
+    if (hook.params.user.bitbucket && hook.params.user.bitbucket.accessToken)  options['accessToken'] = hook.params.user.bitbucket.accessToken;
+    
+  }
+  else if (hook.params.user && hook.params.user.email) { // for bitbucket users
 
     options.user = {
       name: hook.params.user.name,
@@ -126,6 +134,7 @@ var setupOptions = (hook) => {
       accessToken: hook.params.user.bitbucket.accessToken
     }
   }
+  
   else if (options.git) {
     options.user = {
       name: options.git.username,
