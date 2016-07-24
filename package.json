@@ -36,6 +36,7 @@
     "nodegit": "^0.13.0",
     "promisify-node": "^0.4.0",
     "request": "^2.72.0",
+    "rethinkdbdash": "^2.3.17",
     "uberproto": "^1.2.0",
     "underscore.string": "^3.3.4",
     "view-helpers": "^0.1.5",
