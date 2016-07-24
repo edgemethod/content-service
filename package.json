@@ -33,7 +33,7 @@
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
     "multer": "^1.1.0",
-    "nodegit": "^0.13.0",
+    "nodegit": "^0.15.1",
     "promisify-node": "^0.4.0",
     "request": "^2.72.0",
     "rethinkdbdash": "^2.3.17",
